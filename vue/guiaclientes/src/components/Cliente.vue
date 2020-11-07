@@ -2,7 +2,8 @@
   <div>
     <h3>Nome: {{teste.nome}}</h3>
     <p>Sobrenome: {{teste.sobrenome}}</p>
-    <p v-if="showIdade">Idade: {{teste.idade}}</p>
+    <p v-if="showIdade"><b>Idade</b>: {{teste.idade}}</p>
+    <p v-else><b>Idade</b>: Usuário ocultou sua idade.</p>
   </div>
 </template>
 
