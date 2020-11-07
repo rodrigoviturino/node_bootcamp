@@ -1,13 +1,24 @@
 <template>
   <div>
-    <h1>Hello World!</h1>
-    <h2>Seja Bem-Vindo</h2>
+    <h3>Nome: {{teste.nome}}</h3>
+    <p>Sobrenome: {{teste.sobrenome}}</p>
+    <p>Idade: {{teste.idade}}</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Cliente"
+  name: "Cliente",
+  data(){
+    return {
+      cep: "12312",
+    }
+  },
+  props: {
+    texto: String,
+    numero: Number,
+    teste: Object
+  }
 }
 </script>
 

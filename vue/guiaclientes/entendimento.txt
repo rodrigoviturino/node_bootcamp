@@ -3,3 +3,6 @@
     *** Data Binding ***
     One Away = é usado o data biding com a seguinte expressão :atributo="nomeVariavelDoData" e não é reativo, só é feito uma leitura do dado da variavel e joga no item do formulario
     Two Away = esse já é variavel reativo, usado no formulario. usado a seguinte expressão: v-model="nomeVariavelDoData"
+
+    *** Props ***
+    É passado um atributo com nome proprio no elemento dentro do componente e Usado para passar dado de um componente para outro. Exemplo: Componente Filho é setado atributo e quando ele for usado no componente pai ou raiz da aplicação, vai ser passado dados para preencher no componente que vai alimentar o props.

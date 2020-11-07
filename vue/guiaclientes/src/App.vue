@@ -1,22 +1,29 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <cliente></cliente>
-    <produto></produto>
-
+    <cliente :teste="clienteRodrigo"></cliente>
+    <cliente :teste="clienteRodrigo"></cliente>
+    <cliente :teste="clienteRodrigo"></cliente>
   </div>
 </template>
 
 <script>
 import Cliente from './components/Cliente.vue'
-import Produto from './components/Produto.vue'
 
 export default {
   name: 'App',
   components: {
-    Cliente,
-    Produto
-  }
+    Cliente
+  },
+  data(){
+    return {
+      clienteRodrigo: {
+        nome: "Souza",
+        sobrenome: "Viturino",
+        idade: 16
+      }
+    }
+  },
 }
 </script>
 
