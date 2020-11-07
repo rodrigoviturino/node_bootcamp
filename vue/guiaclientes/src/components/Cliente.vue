@@ -2,7 +2,7 @@
   <div>
     <h3>Nome: {{teste.nome}}</h3>
     <p>Sobrenome: {{teste.sobrenome}}</p>
-    <p>Idade: {{teste.idade}}</p>
+    <p v-if="showIdade">Idade: {{teste.idade}}</p>
   </div>
 </template>
 
@@ -17,7 +17,8 @@ export default {
   props: {
     texto: String,
     numero: Number,
-    teste: Object
+    teste: Object,
+    showIdade: Boolean
   }
 }
 </script>

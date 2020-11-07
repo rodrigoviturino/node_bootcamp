@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <cliente :teste="clienteRodrigo"></cliente>
     <cliente :teste="clienteRodrigo"></cliente>
-    <cliente :teste="clienteRodrigo"></cliente>
+    <cliente :teste="clienteRodrigo" :showIdade="true"></cliente>
   </div>
 </template>
 
