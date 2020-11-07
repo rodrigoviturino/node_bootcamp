@@ -1,0 +1,5 @@
+*** Vue ***
+
+    *** Data Binding ***
+    One Away = é usado o data biding com a seguinte expressão :atributo="nomeVariavelDoData" e não é reativo, só é feito uma leitura do dado da variavel e joga no item do formulario
+    Two Away = esse já é variavel reativo, usado no formulario. usado a seguinte expressão: v-model="nomeVariavelDoData"
