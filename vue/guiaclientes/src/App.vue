@@ -2,19 +2,20 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <cliente></cliente>
-    <cliente></cliente>
-    <cliente></cliente>
-    <cliente></cliente>
+    <produto></produto>
+
   </div>
 </template>
 
 <script>
 import Cliente from './components/Cliente.vue'
+import Produto from './components/Produto.vue'
 
 export default {
   name: 'App',
   components: {
-    Cliente
+    Cliente,
+    Produto
   }
 }
 </script>
