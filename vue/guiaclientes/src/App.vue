@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <!-- Cadastro -->
     <h3>Cadastro</h3>
+    <p class="deuErro" v-if="deuErro">Verifique os campos para cadastrar.</p>
     <input type="text" placeholder="Nome" v-model="nomeField"><br>
     <input type="text" placeholder="Sobrenome" v-model="sobrenomeField"><br>
     <input type="number" placeholder="Idade" v-model="idadeField"><br>
@@ -36,7 +37,7 @@ export default {
       nomeField : "",
       sobrenomeField: "",
       idadeField: null,
-
+      deuErro: false,
       clienteRodrigo: {
         nome: "Souza",
         sobrenome: "Viturino",
@@ -73,14 +74,20 @@ export default {
   },
   methods: {
     cadastrarUsuario(){
-      this.clientes.push({
-        nome: this.nomeField,
-        sobrenome: this.sobrenomeField,
-        idade: this.idadeField
-      });
-      this.nomeField = "";
-      this.sobrenomeField = "";
-      this.idadeField = "";
+      if(this.nomeField == "" || this.nomeField == " " || this.nomeField.length < 3){
+        this.deuErro = true;
+        this.deuErro = true;
+      }else{
+        this.clientes.push({
+          nome: this.nomeField,
+          sobrenome: this.sobrenomeField,
+          idade: this.idadeField
+        });
+        this.nomeField = "";
+        this.sobrenomeField = "";
+        this.idadeField = "";
+        this.deuErro = false;
+      }
     }
   },
 }
@@ -94,5 +101,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.deuErro{
+  color: darkred;
 }
 </style>
