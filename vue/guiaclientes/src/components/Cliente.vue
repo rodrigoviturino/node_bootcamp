@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h3>Nome: {{teste.nome}}</h3>
-    <p>Sobrenome: {{teste.sobrenome}}</p>
-    <p v-if="showIdade"><b>Idade</b>: {{teste.idade}}</p>
+    <h3>Nome: {{cliente.nome}}</h3>
+    <p>Sobrenome: {{cliente.sobrenome}}</p>
+    <p v-if="showIdade"><b>Idade</b>: {{cliente.idade}}</p>
     <p v-else><b>Idade</b>: Usuário ocultou sua idade.</p>
   </div>
 </template>
@@ -19,7 +19,8 @@ export default {
     texto: String,
     numero: Number,
     teste: Object,
-    showIdade: Boolean
+    showIdade: Boolean,
+    cliente: Object
   }
 }
 </script>
