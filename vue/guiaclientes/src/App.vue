@@ -1,16 +1,24 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <!-- Cadastro -->
+    <h3>Cadastro</h3>
+    <input type="text" placeholder="Nome" v-model="nomeField"><br>
+    <input type="text" placeholder="Sobrenome" v-model="sobrenomeField"><br>
+    <input type="number" placeholder="Idade" v-model="idadeField"><br>
+    <button @click="cadastrarUsuario">Cadastrar</button>
+    <!-- end Cadastro -->
+
     <!-- <cliente :teste="clienteRodrigo"></cliente>
     <cliente :teste="clienteRodrigo"></cliente>
     <cliente :teste="clienteRodrigo" :showIdade="true"></cliente> -->
       <div v-for="(cliente, index) in clientes" :key="cliente.id">
         <h3>{{index}}</h3>
+        <input type="text" v-model="cliente.nome">
+        <input type="text" v-model="cliente.sobrenome">
         <cliente :cliente="cliente"></cliente>
         <hr>
         <h3>Edição:</h3>
-        <input type="text" v-model="cliente.nome">
-        <input type="text" v-model="cliente.sobrenome">
       </div>
   </div>
 </template>
@@ -25,6 +33,10 @@ export default {
   },
   data(){
     return {
+      nomeField : "",
+      sobrenomeField: "",
+      idadeField: null,
+
       clienteRodrigo: {
         nome: "Souza",
         sobrenome: "Viturino",
@@ -57,6 +69,18 @@ export default {
         },
 
       ]
+    }
+  },
+  methods: {
+    cadastrarUsuario(){
+      this.clientes.push({
+        nome: this.nomeField,
+        sobrenome: this.sobrenomeField,
+        idade: this.idadeField
+      });
+      this.nomeField = "";
+      this.sobrenomeField = "";
+      this.idadeField = "";
     }
   },
 }
