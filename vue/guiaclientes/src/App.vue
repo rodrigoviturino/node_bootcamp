@@ -13,11 +13,11 @@
     <!-- <cliente :teste="clienteRodrigo"></cliente>
     <cliente :teste="clienteRodrigo"></cliente>
     <cliente :teste="clienteRodrigo" :showIdade="true"></cliente> -->
-      <div v-for="(cliente, index) in clientes" :key="cliente.id">
+      <div v-for="(cliente, index) in orderClientes" :key="cliente.id">
         <h3>{{index}}</h3>
         <input type="text" v-model="cliente.nome">
         <input type="text" v-model="cliente.sobrenome">
-        <cliente :cliente="cliente"></cliente>
+        <cliente :cliente="cliente" @deletando="deletarUsuario($event)"></cliente>
         <hr>
         <h3>Edição:</h3>
       </div>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 import Cliente from './components/Cliente.vue'
 
 export default {
@@ -87,7 +88,19 @@ export default {
         this.sobrenomeField = "";
         this.idadeField = "";
         this.deuErro = false;
+        console.log(this.orderClientes);
       }
+    },
+    deletarUsuario($event){
+      console.log("Recebendo evento do pai");
+      let id = $event.idDoCliente;
+      let deletando = this.clientes.filter(cliente => cliente.id != id)
+      this.clientes = deletando;
+    }
+  },
+  computed: {
+    orderClientes(){
+      return _.orderBy(this.clientes, ["nome"], ["desc"]);
     }
   },
 }

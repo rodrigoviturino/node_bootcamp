@@ -4,6 +4,7 @@
     <p>Sobrenome: {{cliente.sobrenome}}</p>
     <p v-if="showIdade"><b>Idade</b>: {{cliente.idade}}</p>
     <p v-else><b>Idade</b>: Usuário ocultou sua idade.</p>
+    <button @click="eventoFilho">Deletar</button>
   </div>
 </template>
 
@@ -21,7 +22,14 @@ export default {
     teste: Object,
     showIdade: Boolean,
     cliente: Object
-  }
+  },
+  methods: {
+    eventoFilho(){
+      console.log("Filho Chorando");
+      this.$emit("deletando",{idDoCliente: this.cliente.id, component: this});
+    }
+  },
+
 }
 </script>
 
