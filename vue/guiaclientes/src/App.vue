@@ -20,6 +20,10 @@
         <cliente :cliente="cliente" @deletando="deletarUsuario($event)"></cliente>
         <hr>
         <h3>Edição:</h3>
+        <div class="buttons">
+  <button class="button is-primary">Primary</button>
+  <button class="button is-link">Link</button>
+</div>
       </div>
   </div>
 </template>
