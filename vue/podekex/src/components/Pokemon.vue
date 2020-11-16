@@ -6,8 +6,24 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     name: "Pokemon",
+    data(){
+        return {
+            dadosAPI: {}
+        }
+    },
+    created(){
+        axios.get(this.url).then((response) => {
+            this.dadosAPI.type = response.data.types[0].type.name;
+            this.dadosAPI.front = response.data.sprites.front_default;
+            this.dadosAPI.front = response.data.sprites.back_default;
+            console.log(this.dadosAPI);
+        })
+
+    },
     props: {
         num: Number,
         name: String,
