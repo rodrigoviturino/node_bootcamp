@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <div v-for="(poke,index) in pokemons" :key="index">
-      <Pokemon :name="poke.name" :url="poke.url" :num="index+1"></Pokemon>
+    <div class="column is-half is-offset-one-quarter">
+      <div v-for="(poke, index) in pokemons" :key="index">
+        <Pokemon :name="poke.name" :url="poke.url" :num="index + 1"></Pokemon>
+      </div>
     </div>
   </div>
 </template>
@@ -11,28 +13,29 @@ import axios from "axios";
 import Pokemon from "./components/Pokemon";
 
 export default {
-  name: 'App',
-  data(){
+  name: "App",
+  data() {
     return {
-      pokemons: []
-    }
+      pokemons: [],
+    };
   },
   methods: {
-    apiPokemon(){
-      axios.get(`https://pokeapi.co/api/v2/pokemon?limit=151&offset=0`)
-      .then((res) => {
-        this.pokemons = res.data.results;
-        console.log(this.pokemons);
-      })
-    }
+    apiPokemon() {
+      axios
+        .get(`https://pokeapi.co/api/v2/pokemon?limit=151&offset=0`)
+        .then((res) => {
+          this.pokemons = res.data.results;
+          console.log(this.pokemons);
+        });
+    },
   },
   components: {
-    Pokemon
+    Pokemon,
   },
-  created(){
-    this.apiPokemon()
-  }
-}
+  created() {
+    this.apiPokemon();
+  },
+};
 </script>
 
 <style>
